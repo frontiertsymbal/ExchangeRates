@@ -1,4 +1,4 @@
-package com.frontier.ExchangeRates.util;
+package com.frontier.ExchangeRates.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.frontier.ExchangeRates.R;
 import com.frontier.ExchangeRates.parseParams.Rate;
+import com.frontier.ExchangeRates.util.UsdList;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.frontier.ExchangeRates.parseParams.Rate;
 import com.frontier.ExchangeRates.parseParams.Rates;
-import com.frontier.ExchangeRates.util.RateAdapter;
+import com.frontier.ExchangeRates.Adapters.RateAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

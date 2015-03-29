@@ -5,13 +5,15 @@
         >
 
     <TextView
-            android:id="@+id/ratesActivityDate"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="downloaded"
+            android:visibility="invisible"
             />
 
     <ListView
-            android:id="@+id/ratesActivityList"
+            android:id="@+id/ratesList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"

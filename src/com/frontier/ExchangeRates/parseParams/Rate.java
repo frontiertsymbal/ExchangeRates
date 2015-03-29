@@ -31,15 +31,4 @@ public class Rate implements Serializable{
         return purchaseRate;
     }
 
-    @Override
-    public String toString() {
-        return "Rate{" +
-                "baseCurrency='" + baseCurrency + '\'' +
-                ", currency='" + currency + '\'' +
-                ", saleRateNB=" + saleRateNB +
-                ", purchaseRateNB=" + purchaseRateNB +
-                ", saleRate=" + saleRate +
-                ", purchaseRate=" + purchaseRate +
-                '}';
-    }
 }

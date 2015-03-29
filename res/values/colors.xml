@@ -3,5 +3,6 @@
 
     <color name="textViewBG">#ff313335</color>
     <color name="stroke">#ff969696</color>
+    <color name="pressed">#ff29ff00</color>
 
 </resources>

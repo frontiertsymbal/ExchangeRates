@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".UsdRatesActivity" android:label="@string/app_name"
+                  android:theme="@android:style/Theme.NoTitleBar"/>
+
         <activity android:name=".RatesActivity" android:label="@string/app_name"
                   android:theme="@android:style/Theme.NoTitleBar"/>
 

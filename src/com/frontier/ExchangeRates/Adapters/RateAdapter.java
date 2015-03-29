@@ -1,4 +1,4 @@
-package com.frontier.ExchangeRates.util;
+package com.frontier.ExchangeRates.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
