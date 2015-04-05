@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import com.frontier.ExchangeRates.parseParams.Rates;
 import com.frontier.ExchangeRates.parseParams.RatesList;
 import com.frontier.ExchangeRates.parseParams.TodayParser;
@@ -23,23 +27,34 @@ import java.util.List;
 public class MainActivity extends Activity {
 
     /*TODO
-        dateBuilder only weekdays
         today view
         design
-        internet connection verify
         * load more rates list *
 
     */
 
     private List<String> dateList = DateBuilder.getDateList();
     private List<Rates> rates = new ArrayList<>();
+    private List<UsdToday> todayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        new RateLoad().execute();
+        if (!isOnline()) {
+            new RateLoad().execute();
+        } else {
+            findViewById(R.id.waitProgressBar).setVisibility(View.INVISIBLE);
+            (findViewById(R.id.splashScreen)).setVisibility(View.INVISIBLE);
+
+            TextView noInternetConnection = new TextView(this);
+            noInternetConnection.setText("No internet connection \nCheck the connection and restart the program");
+            noInternetConnection.setTextSize(35);
+            noInternetConnection.setGravity(Gravity.CENTER);
+
+            ((FrameLayout) findViewById(R.id.mainFrame)).addView(noInternetConnection);
+        }
     }
 
     private class RateLoad extends AsyncTask<Void, Void, List<Rates>> {
@@ -49,7 +64,6 @@ public class MainActivity extends Activity {
             Gson gson = new GsonBuilder().create();
             String date;
             String archiveList;
-            List<UsdToday> todayList;
 
             todayList = TodayParser.parse(GetRequestToJSonString.getString(Const.TODAY_URL));
 
@@ -65,9 +79,8 @@ public class MainActivity extends Activity {
 
         @Override
         protected void onPostExecute(List<Rates> result) {
-
             Intent intent = new Intent(MainActivity.this, UsdRatesActivity.class);
-//            intent.putExtra("today", (Serializable) usdToday);
+            intent.putExtra("today", (Serializable) todayList);
             intent.putExtra("rates", (Serializable) result);
             startActivity(intent);
         }
