@@ -30,7 +30,6 @@ public class MainActivity extends Activity {
         today view
         design
         * load more rates list *
-
     */
 
     private List<String> dateList = DateBuilder.getDateList();
@@ -85,8 +84,6 @@ public class MainActivity extends Activity {
             startActivity(intent);
         }
     }
-
-    //TODO verify internet connection;
 
     private boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);

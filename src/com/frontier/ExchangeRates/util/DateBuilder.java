@@ -15,24 +15,15 @@ public class DateBuilder {
     private static String year;
 
     public static List<String> getDateList() {
-        dataAssign();
-
-        date.add(getDate(day, month, year));
-
         for (int i = 0; i < 31; i++) {
             int dayInt = calendar.get(Calendar.DATE);
-
             calendar.set(Calendar.DATE, dayInt - 1);
-
             if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY || calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
                 continue;
             }
-
             dataAssign();
-
             date.add(getDate(day, month, year));
         }
-
         return date;
     }
 
